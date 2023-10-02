@@ -17,7 +17,4 @@ protobuf==4.24.3
 pyOpenSSL==23.2.0
 streamlit==1.27.1
 tensorflow==2.14.0
-tornado==6.3.3
-wincertstore==0.2.1
-xmlrpclib==1.0.1
-zipp==3.17.0
+
