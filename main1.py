@@ -182,7 +182,6 @@ def Website():
         tmp = tempfile.NamedTemporaryFile(suffix=".jpg", dir='.')
         img = Image.open(io.BytesIO(file.read()))
         img.save(tmp)
-        stre.write(tmp.name)
         predictedVal = SignLang(tmp.name)
         tmp.close()
         stre.markdown(f'<h1 style="text-align: center">predicted value</h1>', unsafe_allow_html=True)
