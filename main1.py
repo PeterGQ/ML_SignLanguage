@@ -16,7 +16,6 @@ from io import BytesIO,StringIO
 # https://www.youtube.com/watch?v=wa2ARoUUdU8
 # We Train the model in Teachable machine
 
-# tmp = tempfile.NamedTemporaryFile(suffix=".jpg")
 
 STYLE = """
 <style>
@@ -133,6 +132,8 @@ def Website():
     file1.close()
     stre.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="ASL gif">', unsafe_allow_html=True)
     stre.text("")
+    stre.write("Disclaimer: We encourage you to change the theme to dark mode in the settings(top right)."
+               " Also when uploading images it may take some time, so be patient \U0001F44D")
     stre.text("")
     stre.text("")
     """
@@ -180,9 +181,7 @@ def Website():
     if file is not None:
         tmp = tempfile.NamedTemporaryFile(suffix=".jpg", dir='.')
         img = Image.open(io.BytesIO(file.read()))
-        # img_path = "./{}".format(file)
         img.save(tmp)
-        img_path = "./{}".format(tmp)
         stre.write(tmp.name)
         predictedVal = SignLang(tmp.name)
         tmp.close()
