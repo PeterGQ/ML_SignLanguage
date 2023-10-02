@@ -1,8 +1,11 @@
 import base64
-
+import io
+import sys
+import tempfile
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 from cvzone.ClassificationModule import Classifier
+from PIL import Image, ImageOps
 import numpy as np
 import math
 import tensorflow as tf
@@ -12,6 +15,8 @@ from io import BytesIO,StringIO
 # Followed this video tutorial
 # https://www.youtube.com/watch?v=wa2ARoUUdU8
 # We Train the model in Teachable machine
+
+# tmp = tempfile.NamedTemporaryFile(suffix=".jpg")
 
 STYLE = """
 <style>
@@ -29,10 +34,10 @@ def SignLang(file):
     detector = HandDetector(maxHands=1)
     classifier = Classifier("Model/keras_model.h5", "Model/labels.txt")
 
-    img = cv2.imread((file))
+    img = cv2.imread(file)
     if img is None:
-        sys.exit("Image not Found")
-
+        stre.write("no img")
+        sys.exit("Image not found")
     imgOutput = img.copy()
     hands, img = detector.findHands(img)
     # Detects hand pressence
@@ -173,8 +178,14 @@ def Website():
         show_file.image(file)
     stre.markdown('----')
     if file is not None:
-        img_path = "./{}".format(file.name)
-        predictedVal = SignLang(img_path)
+        tmp = tempfile.NamedTemporaryFile(suffix=".jpg", dir='.')
+        img = Image.open(io.BytesIO(file.read()))
+        # img_path = "./{}".format(file)
+        img.save(tmp)
+        img_path = "./{}".format(tmp)
+        stre.write(tmp.name)
+        predictedVal = SignLang(tmp.name)
+        tmp.close()
         stre.markdown(f'<h1 style="text-align: center">predicted value</h1>', unsafe_allow_html=True)
         stre.markdown(f'<h3 style="text-align: center">Letter: {predictedVal}</h3>', unsafe_allow_html=True)
 
