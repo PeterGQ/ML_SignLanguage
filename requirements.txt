@@ -17,4 +17,4 @@ protobuf==4.24.3
 pyOpenSSL==23.2.0
 streamlit==1.27.1
 tensorflow==2.14.0
-
+mediapipe==0.10.5
