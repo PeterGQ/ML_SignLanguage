@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000; 
+            background: linear-gradient(to left, #02040f, #040a19, #03081b, #040a19, #02040f); 
             color: #fff; 
             margin: 0;
             padding: 0;
@@ -32,16 +32,38 @@
             color: #ddd;
         }
         .button {
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            transition: all 300ms ease;
+            padding: 1rem;
+            border-radius: 2rem;
+            border: rgb(43, 182, 213) 0.1rem solid;
+            z-index: 0;
+            color: black;
+            text-decoration: none;
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff; 
-            text-decoration: none;
-            border-radius: 5px;
+            background-color: rgb(0, 132, 255);
+        }
+        .button::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        .button:hover::before {
+            top: 0;
         }
         .button:hover {
-            background-color: #0056b3; 
+            color: white;
+            cursor: pointer;
+            background-color: rgb(0, 132, 255);
         }
     </style>
 </head>
@@ -49,7 +71,7 @@
     <div class="container">
         <h1>Welcome to the ML Sign Language Project</h1>
         <p>This project uses machine learning to recognize sign language gestures.</p>
-        <a href="https://ml-signlanguage.onrender.com" class="button">Go to Project Page (might take a while to load, please be patient!) </a> 
+        <a href="https://ml-signlanguage.onrender.com" class="button">Go to Project Page (might take a while to load, please be patient!)</a> 
     </div>
 </body>
 </html>
