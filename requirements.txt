@@ -11,7 +11,7 @@ keyring==24.2.0
 lockfile==0.12.2
 lxml==4.9.3
 monotonic==1.6
-numpy==2.0.0
+numpy==1.25.1
 ordereddict==1.1
 protobuf==4.24.3
 pyOpenSSL==23.2.0
