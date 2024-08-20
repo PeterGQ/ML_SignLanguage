@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Sign Language Project</title>
+    <link rel="icon" type="image/png" href="./ASL-Icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('asl-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: #222; 
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #fff;
+        }
+        p {
+            color: #ddd;
+        }
+        .button {
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            transition: all 300ms ease;
+            padding: 1rem;
+            border-radius: 2rem;
+            border: rgb(43, 182, 213) 0.1rem solid;
+            z-index: 0;
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            background-color: rgb(0, 132, 255);
+        }
+        .button::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        .button:hover::before {
+            top: 0;
+        }
+        .button:hover {
+            color: white;
+            cursor: pointer;
+            background-color: rgb(0, 132, 255);
+        }
+        @media (max-width: 600px) {
+            body {
+                background: url('asl-background.jpg') no-repeat center center fixed;
+                background-size: cover;
+            }
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the ML Sign Language Project</h1>
+        <p>This project uses machine learning to recognize sign language gestures.</p>
+        <a href="https://ml-signlanguage.onrender.com" class="button">Go to Project Page (might take a while to load, please be patient!)</a> 
+    </div>
+</body>
+</html>
